@@ -1,0 +1,10 @@
+popbill:
+  cashbill:
+    link-id: LINKLINK
+    secret-key: SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=
+    test: true
+    use-static-ip: true
+    use-local-time-yn: true
+    
+server:
+  port: 8888

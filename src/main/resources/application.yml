@@ -1,0 +1,20 @@
+popbill:
+  link-id: TESTER
+  secret-key: SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=
+  test: true
+  taxinvoiceservice:
+    link-id: TESTER
+    secret-key: SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=
+    test: true
+  statementservice:
+    link-key: TESTER
+    secret-key: SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=
+    test: true
+  httaxinvoiceservice:
+    link-id: LINKHUB
+    secret-key: 434KOyypCriPZjt0GZBHuxp+M5HWTh6JtLR9qXM84ec=
+    test: true
+spring:
+  thymeleaf:
+    cache: false
+    

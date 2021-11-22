@@ -403,7 +403,7 @@ public class EasyFinBankController {
          */
 
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "021111917000000017";
+        String jobID = "021112219000000029";
 
         // 거래유형, I-입금, O-출금
         String[] TradeType = {"I", "O"};
@@ -442,7 +442,7 @@ public class EasyFinBankController {
          */
 
         // 수집 요청시 발급받은 작업아이디
-        String jobID = "021111917000000017";
+        String jobID = "021112219000000029";
 
         // 거래유형, I-입금, O-출금
         String[] TradeType = {"I", "O"};
@@ -473,10 +473,10 @@ public class EasyFinBankController {
         */
 
         // 거래내역 아이디, SeachAPI 응답항목 중 tid
-        String TID = "02112181100000000120191210000003";
+        String TID = "02111121500000000120211119000001";
 
         // 메모
-        String Memo = "0211218-테스트";
+        String Memo = "211122-TEST";
 
         try {
 

@@ -12,6 +12,7 @@
             <legend th:text="${#request.requestURL}"></legend>
             <fieldset th:each="JobState : ${JobStates}" class="fieldset2">
                 <ul>
+                    <li>jobID (작업아이디) : <span th:text="${JobState.jobID}"></span></li>
                     <li>jobState (수집상태) : <span th:text="${JobState.jobState}"></span></li>
                     <li>startDate (시작일자) : <span th:text="${JobState.startDate}"></span></li>
                     <li>endDate (종료일자) : <span th:text="${JobState.endDate}"></span></li>

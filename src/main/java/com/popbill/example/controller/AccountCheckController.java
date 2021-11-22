@@ -20,7 +20,7 @@ public class AccountCheckController {
     private AccountCheckService accountCheckService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum;
+    private String testCorpNum="1234567890";
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {

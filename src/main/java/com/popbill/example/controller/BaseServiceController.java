@@ -20,10 +20,10 @@ public class BaseServiceController {
     private TaxinvoiceService taxinvoiceService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum;
+    private String testCorpNum="1234567890";
 
     // 팝빌회원 아이디
-    private String testUserID;
+    private String testUserID="testkorea";
 
     // 링크아이디
     private String testLinkID;
@@ -31,7 +31,8 @@ public class BaseServiceController {
     @RequestMapping(value = "checkIsMember", method = RequestMethod.GET)
     public String checkIsMember(Model m) throws PopbillException {
         /*
-         * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다. - LinkID는 인증정보로 설정되어 있는 링크아이디 값입니다.
+         * 사업자번호를 조회하여 연동회원 가입여부를 확인합니다. 
+         * - LinkID는 인증정보로 설정되어 있는 링크아이디 값입니다.
          */
 
         // 조회할 사업자번호, '-' 제외 10자리
@@ -53,7 +54,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getBalance", method = RequestMethod.GET)
     public String getBalance(Model m) throws PopbillException {
         /*
-         * 연동회원의 잔여포인트를 확인합니다. - 과금방식이 파트너과금인 경우 파트너 잔여포인트(GetPartnerBalance API)를 통해 확인하시기 바랍니다.
+         * 연동회원의 잔여포인트를 확인합니다. 
+         * - 과금방식이 파트너과금인 경우 파트너 잔여포인트(GetPartnerBalance API)를 통해 확인하시기 바랍니다.
          */
 
         try {
@@ -72,7 +74,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getPartnerBalance", method = RequestMethod.GET)
     public String getPartnerBalance(Model m) throws PopbillException {
         /*
-         * 파트너의 잔여포인트를 확인합니다. - 과금방식이 연동과금인 경우 연동회원 잔여포인트(GetBalance API)를 이용하시기 바랍니다.
+         * 파트너의 잔여포인트를 확인합니다. 
+         * - 과금방식이 연동과금인 경우 연동회원 잔여포인트(GetBalance API)를 이용하시기 바랍니다.
          */
 
         try {
@@ -91,7 +94,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getPartnerURL", method = RequestMethod.GET)
     public String getPartnerURL(Model m) throws PopbillException {
         /*
-         * 파트너 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * 파트너 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다. 
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          */
 
         // CHRG : 포인트 충전
@@ -114,7 +118,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getAccessURL", method = RequestMethod.GET)
     public String getAccessURL(Model m) throws PopbillException {
         /*
-         * 팝빌 사이트에 로그인 상태로 접근할 수 있는 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * 팝빌 사이트에 로그인 상태로 접근할 수 있는 페이지의 팝업 URL을 반환합니다. 
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          */
         try {
 
@@ -133,7 +138,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getChargeURL", method = RequestMethod.GET)
     public String getChargeURL(Model m) throws PopbillException {
         /*
-         * 연동회원 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * 연동회원 포인트 충전을 위한 페이지의 팝업 URL을 반환합니다. 
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          */
         try {
 
@@ -152,7 +158,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getPaymentURL", method = RequestMethod.GET)
     public String getPaymentURL(Model m) throws PopbillException {
         /*
-         * 연동회원 포인트 결제내역 확인을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * 연동회원 포인트 결제내역 확인을 위한 페이지의 팝업 URL을 반환합니다. 
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          */
         try {
 
@@ -171,7 +178,8 @@ public class BaseServiceController {
     @RequestMapping(value = "getUseHistoryURL", method = RequestMethod.GET)
     public String getUseHistoryURL(Model m) throws PopbillException {
         /*
-         * 연동회원 포인트 사용내역 확인을 위한 페이지의 팝업 URL을 반환합니다. - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
+         * 연동회원 포인트 사용내역 확인을 위한 페이지의 팝업 URL을 반환합니다.
+         * - 반환되는 URL은 보안 정책상 30초 동안 유효하며, 시간을 초과한 후에는 해당 URL을 통한 페이지 접근이 불가합니다.
          */
         try {
 

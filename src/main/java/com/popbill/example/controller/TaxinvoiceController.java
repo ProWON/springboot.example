@@ -41,10 +41,10 @@ public class TaxinvoiceController {
     private TaxinvoiceService taxinvoiceService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum = "1234567890";
+    private String testCorpNum = "0000000105";
 
     // 팝빌회원 아이디
-    private String testUserID = "testkorea";
+    private String testUserID = "prowon45";
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
@@ -61,7 +61,7 @@ public class TaxinvoiceController {
         
         MgtKeyType keyType = MgtKeyType.SELL;
 
-        String mgtKey = "20210712-001";
+        String mgtKey = "20211118-001-96";
 
         String isUseStr;
 
@@ -93,7 +93,7 @@ public class TaxinvoiceController {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20211116");
+        taxinvoice.setWriteDate("20211122");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -121,7 +121,7 @@ public class TaxinvoiceController {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20211116-002");
+        taxinvoice.setInvoicerMgtKey("20211122-001");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -259,7 +259,7 @@ public class TaxinvoiceController {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20211116"); // 거래일자
+        detail.setPurchaseDT("20211122"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -273,7 +273,7 @@ public class TaxinvoiceController {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20211116"); // 거래일자
+        detail.setPurchaseDT("20211122"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -338,7 +338,7 @@ public class TaxinvoiceController {
 
         // 제출아이디, 대량 발행 접수를 구별하는 식별키
         // └ 최대 36자리 영문, 숫자, '-' 조합으로 구성
-        String SubmitID = "20211118-001";
+        String SubmitID = "20211122-001";
 
         // 지연발행 강제여부
         // 발행마감일이 지난 세금계산서를 발행하는 경우, 가산세가 부과될 수 있습니다.
@@ -354,7 +354,7 @@ public class TaxinvoiceController {
             Taxinvoice taxinvoice = new Taxinvoice();
 
             // 작성일자, 날짜형식(yyyyMMdd)
-            taxinvoice.setWriteDate("20211118");
+            taxinvoice.setWriteDate("20211122");
 
             // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
             taxinvoice.setChargeDirection("정과금");
@@ -518,7 +518,7 @@ public class TaxinvoiceController {
             TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
             detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-            detail.setPurchaseDT("20210701"); // 거래일자
+            detail.setPurchaseDT("20211122"); // 거래일자
             detail.setItemName("품목명");
             detail.setSpec("규격");
             detail.setQty("1"); // 수량
@@ -532,7 +532,7 @@ public class TaxinvoiceController {
             detail = new TaxinvoiceDetail();
 
             detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-            detail.setPurchaseDT("20210701"); // 거래일자
+            detail.setPurchaseDT("20211122"); // 거래일자
             detail.setItemName("품목명2");
             detail.setSpec("규격");
             detail.setQty("1"); // 수량
@@ -585,7 +585,7 @@ public class TaxinvoiceController {
          */
 
         // 대량 발행 접수시 기재한 제출아이디
-        String SubmitID = "20211118-001";
+        String SubmitID = "20211122-001";
 
         try {
 
@@ -615,7 +615,7 @@ public class TaxinvoiceController {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20210809");
+        taxinvoice.setWriteDate("20211122");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -643,7 +643,7 @@ public class TaxinvoiceController {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20210809-Send-003");
+        taxinvoice.setInvoicerMgtKey("20211122-Register002");
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명");
@@ -781,7 +781,7 @@ public class TaxinvoiceController {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210701"); // 거래일자
+        detail.setPurchaseDT("20211122"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -795,7 +795,7 @@ public class TaxinvoiceController {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210701"); // 거래일자
+        detail.setPurchaseDT("20211122"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -845,13 +845,13 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-Register001";
 
         // 세금계산서 정보 객체
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20210701");
+        taxinvoice.setWriteDate("20211111");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, 역과금의 경우 역발행세금계산서 발행시에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -879,7 +879,7 @@ public class TaxinvoiceController {
         taxinvoice.setInvoicerCorpName("공급자 상호");
 
         // 공급자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        taxinvoice.setInvoicerMgtKey("20210701-001");
+        taxinvoice.setInvoicerMgtKey(mgtKey);
 
         // 공급자 대표자성명
         taxinvoice.setInvoicerCEOName("공급자 대표자 성명_수정");
@@ -1017,7 +1017,7 @@ public class TaxinvoiceController {
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210701"); // 거래일자
+        detail.setPurchaseDT("20211111"); // 거래일자
         detail.setItemName("품목명"); // 품목
         detail.setSpec("규격"); // 규격
         detail.setQty("1"); // 수량
@@ -1031,7 +1031,7 @@ public class TaxinvoiceController {
         detail = new TaxinvoiceDetail();
 
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210701"); // 거래일자
+        detail.setPurchaseDT("20211111"); // 거래일자
         detail.setItemName("품목명2"); // 품목명
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1082,7 +1082,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-003";
+        String mgtKey = "20211122-Register002";
 
         // 메모
         String memo = "발행 메모";
@@ -1102,7 +1102,7 @@ public class TaxinvoiceController {
             return "exception";
         }
 
-        return "issueResponse";
+        return "Taxinvoice/issueResponse";
     }
 
     @RequestMapping(value = "cancelIssue", method = RequestMethod.GET)
@@ -1117,7 +1117,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-Register002";
 
         // 메모
         String memo = "발행취소 메모";
@@ -1125,6 +1125,35 @@ public class TaxinvoiceController {
         try {
 
             Response response = taxinvoiceService.cancelIssue(testCorpNum, mgtKeyType, mgtKey, memo);
+
+            m.addAttribute("Response", response);
+
+        } catch (PopbillException e) {
+            m.addAttribute("Exception", e);
+            return "exception";
+        }
+
+        return "response";
+    }
+    
+    @RequestMapping(value = "delete", method = RequestMethod.GET)
+    public String delete(Model m) {
+        /*
+         * 삭제 가능한 상태의 세금계산서를 삭제합니다. 
+         * - 삭제 가능한 상태: "임시저장", "발행취소", "역발행거부", "역발행취소", "전송실패" 
+         * - 세금계산서를 삭제해야만 문서번호(mgtKey)를 재사용할 수 있습니다. 
+         * - https://docs.popbill.com/taxinvoice/java/api#Delete
+         */
+
+        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
+        MgtKeyType mgtKeyType = MgtKeyType.SELL;
+
+        // 세금계산서 문서번호
+        String mgtKey = "20211122-Register002";
+
+        try {
+
+            Response response = taxinvoiceService.delete(testCorpNum, mgtKeyType, mgtKey);
 
             m.addAttribute("Response", response);
 
@@ -1149,7 +1178,7 @@ public class TaxinvoiceController {
         Taxinvoice taxinvoice = new Taxinvoice();
 
         // 작성일자, 날짜형식(yyyyMMdd)
-        taxinvoice.setWriteDate("20210701");
+        taxinvoice.setWriteDate("20211122");
 
         // 과금방향, [정과금, 역과금] 중 선택기재, "역과금"은 역발행세금계산서 발행에만 가능
         taxinvoice.setChargeDirection("정과금");
@@ -1221,7 +1250,7 @@ public class TaxinvoiceController {
         taxinvoice.setInvoiceeCorpName("공급받는자 상호");
 
         // [역발행시 필수] 공급받는자 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        taxinvoice.setInvoiceeMgtKey("20210701-A00");
+        taxinvoice.setInvoiceeMgtKey("20210701-Request");
 
         // 공급받는자 대표자 성명
         taxinvoice.setInvoiceeCEOName("공급받는자 대표자 성명");
@@ -1313,7 +1342,7 @@ public class TaxinvoiceController {
         // 상세항목 객체
         TaxinvoiceDetail detail = new TaxinvoiceDetail();
         detail.setSerialNum((short) 1); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210701"); // 거래일자
+        detail.setPurchaseDT("20211122"); // 거래일자
         detail.setItemName("품목명");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1325,7 +1354,7 @@ public class TaxinvoiceController {
 
         detail = new TaxinvoiceDetail();
         detail.setSerialNum((short) 2); // 일련번호, 1부터 순차기재
-        detail.setPurchaseDT("20210701"); // 거래일자
+        detail.setPurchaseDT("20211122"); // 거래일자
         detail.setItemName("품목명2");
         detail.setSpec("규격");
         detail.setQty("1"); // 수량
@@ -1365,7 +1394,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-Request001";
 
         // 메모
         String memo = "역발행 요청 메모";
@@ -1396,7 +1425,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.BUY;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210702-001";
+        String mgtKey = "20211122-001";
 
         // 메모
         String memo = "역발행 취소 메모";
@@ -1446,35 +1475,6 @@ public class TaxinvoiceController {
         return "response";
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.GET)
-    public String delete(Model m) {
-        /*
-         * 삭제 가능한 상태의 세금계산서를 삭제합니다. 
-         * - 삭제 가능한 상태: "임시저장", "발행취소", "역발행거부", "역발행취소", "전송실패" 
-         * - 세금계산서를 삭제해야만 문서번호(mgtKey)를 재사용할 수 있습니다. 
-         * - https://docs.popbill.com/taxinvoice/java/api#Delete
-         */
-
-        // 세금계산서 유형, 매출-SELL, 매입-BUY, 위수탁-TRUSTEE
-        MgtKeyType mgtKeyType = MgtKeyType.SELL;
-
-        // 세금계산서 문서번호
-        String mgtKey = "20210702-001";
-
-        try {
-
-            Response response = taxinvoiceService.delete(testCorpNum, mgtKeyType, mgtKey);
-
-            m.addAttribute("Response", response);
-
-        } catch (PopbillException e) {
-            m.addAttribute("Exception", e);
-            return "exception";
-        }
-
-        return "response";
-    }
-
     @RequestMapping(value = "sendToNTS", method = RequestMethod.GET)
     public String sendToNTS(Model m) {
         /*
@@ -1488,7 +1488,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-001-95";
 
         try {
 
@@ -1515,7 +1515,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20211116-001";
+        String mgtKey = "20211122-001-95";
 
         try {
 
@@ -1542,7 +1542,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호 배열, 최대 1000건
-        String[] MgtKeyList = new String[] { "20210701-001", "20210701-002", "20210701-003" };
+        String[] MgtKeyList = new String[] { "20211122-001-91", "20211122-001-92", "20211122-001-93" };
 
         try {
 
@@ -1569,7 +1569,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20211116-002";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1680,7 +1680,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20211116-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1733,7 +1733,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210703-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1761,7 +1761,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210703-002";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1789,7 +1789,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1817,7 +1817,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1846,7 +1846,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210705-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1874,7 +1874,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 문서번호 배열, 최대 100건
-        String[] MgtKeyList = new String[] { "202107010002", "202107010001" };
+        String[] MgtKeyList = new String[] { "20211122-001-91", "20211122-001-92" };
 
         try {
 
@@ -1901,7 +1901,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1929,7 +1929,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210703-001";
+        String mgtKey = "20211122-001-92";
 
         try {
 
@@ -1978,7 +1978,7 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211122-001-92";
 
         // 첨부파일 표시명
         String displayName = "첨부파일.jpg";
@@ -1986,7 +1986,7 @@ public class TaxinvoiceController {
         // 첨부할 파일의 InputStream. 예제는 resource에 테스트파일을 참조함.
         // FileInputStream으로 처리하는 것을 권함.
         InputStream stream = getClass().getClassLoader().getResourceAsStream("test.jpg");
-
+        
         try {
 
             Response response = taxinvoiceService.attachFile(testCorpNum, mgtKeyType, mgtKey, displayName, stream);
@@ -2179,13 +2179,13 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-02";
+        String mgtKey = "20211122-001-92";
 
         // 첨부할 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
         int subItemCode = 121;
 
         // 첨부활 전자명세서 문서번호
-        String subMgtKey = "20210701-S05";
+        String subMgtKey = "20211122-001-92-STATEMENT";
 
         try {
 
@@ -2213,13 +2213,13 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 문서번호
-        String mgtKey = "20210701-02";
+        String mgtKey = "20211122-001-92";
 
         // 첨부해제할 명세서 코드 - 121(거래명세서), 122(청구서), 123(견적서), 124(발주서), 125(입금표), 126(영수증)
         int subItemCode = 121;
 
         // 첨부해제할 전자명세서 문서번호
-        String subMgtKey = "20210701-S05";
+        String subMgtKey = "20211122-001-92-STATEMENT";
 
         try {
 
@@ -2268,10 +2268,10 @@ public class TaxinvoiceController {
         MgtKeyType mgtKeyType = MgtKeyType.SELL;
 
         // 세금계산서 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
-        String itemKey = "021121218060300001";
+        String itemKey = "021112211014200001";
 
         // 할당할 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-100";
+        String mgtKey = "20210701-20202";
 
         try {
 

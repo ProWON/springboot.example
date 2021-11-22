@@ -1,6 +1,8 @@
 package com.popbill.example.controller;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -691,10 +693,10 @@ public class CashbillController {
         String DType = "T";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211110";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20211122";
 
         // 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = { "100", "2**", "3**", "4**" };
@@ -1084,11 +1086,16 @@ public class CashbillController {
          * 현금영수증 관련 메일 항목에 대한 발송설정을 확인합니다. 
          * - https://docs.popbill.com/cashbill/java/api#ListEmailConfig
          */
-
+        Map<String, Boolean> emailSendConfigs = new HashMap<>();
+        
         try {
 
-            EmailSendConfig[] emailSendConfigs = cashbillService.listEmailConfig(testCorpNum);
-
+            EmailSendConfig[] Configs = cashbillService.listEmailConfig(testCorpNum);
+            
+            for(EmailSendConfig emailSendConfig : Configs) {
+                emailSendConfigs.put(emailSendConfig.getEmailType(), emailSendConfig.getSendYN());
+            }
+            
             m.addAttribute("EmailSendConfigs", emailSendConfigs);
 
         } catch (PopbillException e) {

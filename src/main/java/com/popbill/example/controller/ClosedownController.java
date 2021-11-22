@@ -21,7 +21,7 @@ public class ClosedownController {
     private CloseDownService closedownService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum;
+    private String testCorpNum="1234567890";
 
     // 팝빌회원 아이디
     private String testUserID;

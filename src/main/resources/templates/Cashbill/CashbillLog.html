@@ -12,7 +12,7 @@
             <legend th:text="${#request.requestURL}"></legend>
             <fieldset th:each="CashbillLog, index : ${CashbillLogs}" class="fieldset2">
                 <legend>
-                    [<span th:text="${index.count}"></span>/<span th:text="${index.size}"></span>]
+                    [<span th:text="${index.index + 1}"></span>/<span th:text="${index.size}"></span>]
                 </legend>
                 <ul>
                     <li>docLogType(로그타입) : <span th:text="${CashbillLog.docLogType}"></span></li>

@@ -22,7 +22,7 @@
                 </ul>
 
                 <fieldset th:each="SearchInfo, index : ${SearchResult.list}" class="fieldset3">
-                    <legend>전자명세서 요약정보[ <span th:text="${index.count}"></span> / <span th:text="${index.size}"></span> ]</legend>
+                    <legend>전자명세서 요약정보[ <span th:text="${index.index + 1}"></span> / <span th:text="${index.size}"></span> ]</legend>
                     <ul>
                         <li>itemKey (팝빌번호) : <span th:text="${SearchInfo.itemKey}"></span></li>
                         <li>itemCode(명세서 코드) : <span th:text="${SearchInfo.itemCode}"></span></li>

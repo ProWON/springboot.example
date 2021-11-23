@@ -1,12 +1,13 @@
 popbill:
-  link-id: TESTER
-  secret-key: SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=
+  linkID: TESTER
+  secretKey: SwWxqU+0TErBXy/9TVjIPEnI0VTUMMSQZtJf3Ed8q3I=
   test: true
-  taxinvoiceservice:
-    link-id: TESTER2
-    secret-key: KxXNYaucIVFpKsx9G3IycC9o8tbFDPVa8Ix8/KXh7eA=
-    test: true
-  
+  useStaticIP: false
+  ipRestrectOnOff: true
+  useLocalTimeYN: true
+  corpNum: 1234567890
+  userID: testkorea
+
 spring:
   thymeleaf:
     cache: false

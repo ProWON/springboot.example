@@ -10,6 +10,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,10 +42,12 @@ public class TaxinvoiceController {
     private TaxinvoiceService taxinvoiceService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum = "0000000105";
+    @Value("${popbill.corpNum}")
+    private String testCorpNum;
 
     // 팝빌회원 아이디
-    private String testUserID = "prowon45";
+    @Value("${popbill.userID}")
+    private String testUserID;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
@@ -1985,7 +1988,7 @@ public class TaxinvoiceController {
 
         // 첨부할 파일의 InputStream. 예제는 resource에 테스트파일을 참조함.
         // FileInputStream으로 처리하는 것을 권함.
-        InputStream stream = getClass().getClassLoader().getResourceAsStream("test.jpg");
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("static/image/test.jpg");
         
         try {
 

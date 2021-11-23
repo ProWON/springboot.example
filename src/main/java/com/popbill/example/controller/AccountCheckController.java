@@ -3,6 +3,7 @@ package com.popbill.example.controller;
 import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +21,12 @@ public class AccountCheckController {
     private AccountCheckService accountCheckService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum="1234567890";
+    @Value("${popbill.corpNum}")
+    private String testCorpNum;
+
+    // 팝빌회원 아이디
+    @Value("${popbill.userID}")
+    private String testUserID;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {

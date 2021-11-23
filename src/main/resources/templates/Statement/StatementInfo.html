@@ -46,7 +46,7 @@
             <legend th:text="${#request.requestURL}"></legend>
             <fieldset th:each="StatementInfo, index : ${StatementInfos}" class="fieldset2">
                 <legend>
-                    StatementInfos [<span th:text=${index.count}></span> / <span th:text=${index.size}></span>]
+                    StatementInfos [<span th:text="${index.index + 1}"></span> / <span th:text="${index.size}"></span>]
                 </legend>
                 <ul>
                     <li>itemCode (명세서 코드) : <span th:text="${StatementInfo.itemCode}"></span></li>

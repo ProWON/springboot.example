@@ -22,7 +22,7 @@
                 </ul>
 
                 <fieldset th:each="SearchInfo, index : ${SearchResult.list}" class="fieldset3">
-                    <legend>전송결과 정보[ <span th:text="${index.count}"></span> / <span th:text="${index.size}"></span> ]</legend>
+                    <legend>전송결과 정보[ <span th:text="${index.index + 1}"></span> / <span th:text="${index.size}"></span> ]</legend>
                     <ul>
                         <li>state (전송상태 코드) : <span th:text="${SearchInfo.state}"></span></li>
                         <li>result (전송결과 코드) : <span th:text="${SearchInfo.result}"></span></li>

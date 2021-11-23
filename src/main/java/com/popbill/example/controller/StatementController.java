@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +35,11 @@ public class StatementController {
     private StatementService statementService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum = "1234567890";
+    @Value("${popbill.corpNum}")
+    private String testCorpNum;
 
     // 팝빌회원 아이디
+    @Value("${popbill.userID}")
     private String testUserID;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
@@ -91,7 +94,7 @@ public class StatementController {
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20210706");
+        statement.setWriteDate("20211123");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -106,7 +109,7 @@ public class StatementController {
         statement.setItemCode((short) 121);
 
         // [필수] 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        statement.setMgtKey("20210706-001");
+        statement.setMgtKey("20211123-003");
 
 
         /*********************************************************************
@@ -175,7 +178,7 @@ public class StatementController {
         // 수신자 메일주소
         // 팝빌 개발환경에서 테스트하는 경우에도 안내 메일이 전송되므로,
         // 실제 거래처의 메일주소가 기재되지 않도록 주의
-        statement.setReceiverEmail("code@linkhub.co.kr");
+        statement.setReceiverEmail("");
 
 
         /*********************************************************************
@@ -216,7 +219,7 @@ public class StatementController {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210706");                // 거래일자
+        detail.setPurchaseDT("20211123");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -226,7 +229,7 @@ public class StatementController {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210706");                // 거래일자
+        detail.setPurchaseDT("20211123");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -236,8 +239,7 @@ public class StatementController {
 
         /*********************************************************************
          *                           전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] > 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -258,7 +260,7 @@ public class StatementController {
             return "exception";
         }
 
-        return "SMTIssueResponse";
+        return "Statement/issueResponse";
     }
 
     @RequestMapping(value = "register", method = RequestMethod.GET)
@@ -272,7 +274,7 @@ public class StatementController {
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMMdd
-        statement.setWriteDate("20210705");
+        statement.setWriteDate("20211123");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -287,7 +289,7 @@ public class StatementController {
         statement.setItemCode((short) 121);
 
         // [필수] 문서번호, 최대 24자리 영문 대소문자, 숫자, 특수문자('-','_')만 이용 가능
-        statement.setMgtKey("20210705-001");
+        statement.setMgtKey("20211123-Register002");
 
 
         /*********************************************************************
@@ -397,7 +399,7 @@ public class StatementController {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210705");                // 거래일자
+        detail.setPurchaseDT("20211123");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -407,7 +409,7 @@ public class StatementController {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210705");                // 거래일자
+        detail.setPurchaseDT("20211123");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -417,8 +419,7 @@ public class StatementController {
 
         /*********************************************************************
          *                           전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] > 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -455,13 +456,13 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-01";
+        String mgtKey = "20211123-Register001";
 
         //  전자명세서 정보 객체
         Statement statement = new Statement();
 
         // [필수] 작성일자, 형태 yyyyMmdd
-        statement.setWriteDate("20210701");
+        statement.setWriteDate("20211123");
 
         // [필수] {영수, 청구} 중 기재
         statement.setPurposeType("영수");
@@ -586,7 +587,7 @@ public class StatementController {
 
         detail.setSerialNum((short) 1);                    // 일련번호, 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210701");                // 거래일자
+        detail.setPurchaseDT("20211122");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -596,7 +597,7 @@ public class StatementController {
         detail = new StatementDetail();                    // 상세항목(품목) 배열
         detail.setSerialNum((short) 2);                    // 일련번호 1부터 순차기재
         detail.setItemName("품명");                        // 품목명
-        detail.setPurchaseDT("20210701");                // 거래일자
+        detail.setPurchaseDT("20211122");                // 거래일자
         detail.setQty("1");                                // 수량
         detail.setSupplyCost("200000");                    // 공급가액
         detail.setTax("20000");                            // 세액
@@ -606,8 +607,7 @@ public class StatementController {
 
         /*********************************************************************
          *                           전자명세서 추가속성
-         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] >
-         *   5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
+         * - 추가속성에 관한 자세한 사항은 "[전자명세서 API 연동매뉴얼] > 5.2. 기본양식 추가속성 테이블"을 참조하시기 바랍니다.
          *********************************************************************/
 
         Map<String, String> propertyBag = new HashMap<String, String>();
@@ -646,7 +646,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211123-Register001";
 
         // 메모
         String memo = "발행메모";
@@ -655,7 +655,7 @@ public class StatementController {
 
             Response response = statementService.issue(testCorpNum, itemCode,
                     mgtKey, memo);
-
+            
             m.addAttribute("Response", response);
 
         } catch (PopbillException e) {
@@ -677,7 +677,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211123-Register001";
 
         // 메모
         String memo = "발행취소 메모";
@@ -710,7 +710,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-01";
+        String mgtKey = "20211123-Register001";
 
         try {
 
@@ -737,7 +737,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20211117_001";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -765,7 +765,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 전자명세서 문서번호 배열(최대 1000건)
-        String[] MgtKeyList = new String[]{"20211117_001", "20211117_002", "20211117_003"};
+        String[] MgtKeyList = new String[]{"20211123-003", "20211123-001", "20211123-002"};
 
         try {
 
@@ -793,7 +793,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20211117_001";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -821,10 +821,10 @@ public class StatementController {
         String DType = "W";
 
         // 시작일자, 날짜형식(yyyyMMdd)
-        String SDate = "20210701";
+        String SDate = "20211101";
 
         // 종료일자, 날짜형식(yyyyMMdd)
-        String EDate = "20210710";
+        String EDate = "20211123";
 
         // 전자명세서 상태코드 배열, 2,3번째 자리에 와일드카드(*) 사용 가능
         String[] State = {"100", "2**", "3**", "4**"};
@@ -870,7 +870,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20211117_001";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -924,7 +924,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -953,7 +953,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210702-001-TEST";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -983,7 +983,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -1012,7 +1012,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211123-003";
 
         try {
 
@@ -1041,7 +1041,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호 배열, 최대 100건
-        String[] mgtKeyList = new String[]{"20210701-001", "20210701-01", "20210701-001", "20210701-01"};
+        String[] mgtKeyList = new String[]{"20211123-003", "20211123-002", "20211123-001", "20211123-004"};
 
         try {
 
@@ -1070,7 +1070,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 전자명세서 문서번호
-        String mgtKey = "20210701-001";
+        String mgtKey = "20211123-003";
 
         try {
             String url = statementService.getMailURL(testCorpNum, itemCode, mgtKey);
@@ -1096,16 +1096,15 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210708-01";
+        String mgtKey = "20211123-Register002";
 
         // 첨부파일 표시명
         String displayName = "첨부파일.jpg";
 
         //첨부할 파일의 InputStream. 예제는 resource에 테스트파일을 참조함.
         //FileInputStream으로 처리하는 것을 권함.
-        InputStream stream = getClass().getClassLoader().getResourceAsStream("test.jpg");
-
-
+        InputStream stream = getClass().getClassLoader().getResourceAsStream("static/image/test.jpg");
+    
         try {
 
             Response response = statementService.attachFile(testCorpNum, itemCode,
@@ -1140,10 +1139,10 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-01";
+        String mgtKey = "20211123-Register002";
 
         // getFiles()로 해당 파일의 attachedFile 필드값 기재.
-        String FileID = "57C0A91A-BF5A-494A-8E0D-B46FC9B5C8E2.PBF";
+        String FileID = "21C39C6C-59AD-4E4F-A44A-D0C5F06F3C41.PBF";
 
         try {
 
@@ -1172,7 +1171,7 @@ public class StatementController {
         int itemCode = 121;
 
         // 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210701-01";
+        String mgtKey = "20211123-Register002";
 
         try {
 

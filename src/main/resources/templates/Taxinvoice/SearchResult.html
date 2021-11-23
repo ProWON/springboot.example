@@ -22,7 +22,7 @@
                 </ul>
 
                 <fieldset th:each="SearchInfo, index : ${SearchResult.list}" class="fieldset3">
-                    <legend>세금계산서 요약정보[ <span th:text="${index.count}"></span> / <span th:text="${index.size}"></span> ]</legend>
+                    <legend>세금계산서 요약정보[ <span th:text="${index.index + 1}"></span> / <span th:text="${index.size}"></span> ]</legend>
                     <ul>
                         <li>itemKey (팝빌번호) : <span th:text="${SearchInfo.itemKey}"></span></li>
                         <li>taxType (과세형태) : <span th:text="${SearchInfo.taxType}"></span></li>

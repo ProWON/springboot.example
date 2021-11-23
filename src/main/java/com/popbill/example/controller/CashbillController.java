@@ -5,6 +5,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,10 +30,12 @@ public class CashbillController {
     private CashbillService cashbillService;
 
     // 팝빌회원 사업자번호
-    private String testCorpNum = "1234567890";
+    @Value("${popbill.corpNum}")
+    private String testCorpNum;
 
     // 팝빌회원 아이디
-    private String testUserID = "testkorea";
+    @Value("${popbill.userID}")
+    private String testUserID;
 
     @RequestMapping(value = "", method = RequestMethod.GET)
     public String home(Locale locale, Model model) {
@@ -1061,10 +1064,10 @@ public class CashbillController {
          */
 
         // 현금영수증 아이템키, 문서 목록조회(Search) API의 반환항목중 ItemKey 참조
-        String itemKey = "021080716195300001";
+        String itemKey = "021111513394300001";
 
         // 할당할 문서번호, 최대 24자리, 영문, 숫자 '-', '_'를 조합하여 사업자별로 중복되지 않도록 구성
-        String mgtKey = "20210807-100";
+        String mgtKey = "20211123-Asign001";
 
         try {
 

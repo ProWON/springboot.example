@@ -79,7 +79,7 @@
                 <fieldset th:if="${Statement.propertyBag}" class="fieldset3">
                     <legend>propertyBag</legend>
                     <ul>
-                        <li th:each="propertyBag : ${Statement.propertyBag}"><span th:text="#{propertyBag.key}"></span> : <span th:text=" ${propertyBag.value}"></span></li>
+                        <li th:each="propertyBag : ${Statement.propertyBag}"><span th:text="${propertyBag.key}"></span> : <span th:text=" ${propertyBag.value}"></span></li>
                     </ul>
                 </fieldset>
             </fieldset>

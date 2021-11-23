@@ -28,7 +28,7 @@
             </fieldset>
 
             <fieldset th:each="TaxinvoiceInfo, index : ${BulkResult.issueResult}" class="fieldset2">
-                <legend>issueResult[<span th:text="${index.count}"></span> / <span th:text="${index.size}"></span>]</legend>
+                <legend>issueResult[<span th:text="${index.index + 1}"></span> / <span th:text="${index.size}"></span>]</legend>
                 <ul>
                     <li>code (응답코드) : <span th:text="${TaxinvoiceInfo.code}"></span></li>
                     <li>invoicerMgtKey (공급자 문서번호) : <span th:text="${TaxinvoiceInfo.invoicerMgtKey}"></span></li>
